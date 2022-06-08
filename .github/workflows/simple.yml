@@ -16,5 +16,14 @@ jobs:
       - name: Ejecuto En otro shell Instrucciones
         run: |
           (Get-Command java | Select-Object -ExpandProperty Version).toString()         
-        shell: pwsh  
-      
+        shell: pwsh
+
+  run-windows-command:
+    runs-on: windows-latest
+    steps:
+      - name: Java
+        run: java -version
+      - name: Ejecuto Varias Instrucciones
+        run: |       
+          echo ${{github.ref}}
+     
