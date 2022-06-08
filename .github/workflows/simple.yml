@@ -15,6 +15,6 @@ jobs:
           echo ${{github.ref}}
       - name: Ejecuto En otro shell Instrucciones
         run: |
-          dir         
-        shell: cmd  
+          (Get-Command java | Select-Object -ExpandProperty Version).toString()         
+        shell: pwsh  
       
