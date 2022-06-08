@@ -12,8 +12,9 @@ jobs:
         run: |
           node -v
           npm -v
+          echo ${github.ref}
       - name: Ejecuto En otro shell Instrucciones
         run: |
-          java -version          
+          dir         
         shell: cmd  
       
