@@ -12,8 +12,9 @@ jobs:
         uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
         # INPUTS DE LA DOCU
         with:
-          who-to-greet: Carlos Neila
+          # INPUT NAME: "who-to-greet"
+          who-to-greet: Carlos Neila Ramos
       - name : Log Time
-        #Time OUPUT DE LA DOCU
+        #"time" del JS OUPUT DE LA DOCU
         run: echo "${{steps.idRun.outputs.time}}"    
  
