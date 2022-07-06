@@ -1,0 +1,21 @@
+name: Shell Commands
+
+on: [pull_request]
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: voy a pintar un String
+        run: echo "pull_request"
+      - name: Ejecuto Varias Instrucciones
+        run: |
+          node -v
+          npm -v
+          echo ${{github.ref}}
+      - name: Ejecuto En otro shell Instrucciones
+        run: |
+          (Get-Command java | Select-Object -ExpandProperty Version).toString()         
+        shell: pwsh
+  
+     
