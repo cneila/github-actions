@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: voy a pintar un String
-        run: echo "pull_request"
+        run: echo "pull_request ANY BRANCH PRUEBA"
       - name: Ejecuto Varias Instrucciones
         run: |
           node -v
