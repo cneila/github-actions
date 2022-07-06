@@ -3,6 +3,23 @@ name: Actions WF
 on: [push]
 
 jobs:
+  run-github-actions-using-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files CNEIL
+        id: Pre-checkout
+        run: |
+          pwd
+          ls -a
+      - name: Checkout CNEILA
+        id: Checkout
+        #EXTERNAL ACTION https://github.com/actions/checkout
+        uses: actions/checkout@v1
+      - name: List Files CNEILA  AFTERCHECK
+        id: Post-checkout
+        run: |
+          pwd
+          ls -a
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
