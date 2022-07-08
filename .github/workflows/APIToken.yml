@@ -18,8 +18,4 @@ jobs:
             }' \
           --fail
           - name: Create Random Files
-      - name: Create issue using REST API
-        run: |
-          pwd
-          ls -a
-          
+      
