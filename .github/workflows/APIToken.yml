@@ -5,7 +5,25 @@ on: [ push ]
 jobs:
   create-issue:
     runs-on: ubuntu-latest     
-    steps:      
+    steps:   
+      - name: Create issue using REST API
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "carlos.neila.ramos@gmail.com"
+          git config --global user.name "cneila"
+          git fetch
+          git checkout master
+          git branch --set-upstream-to=origin/master
+          git pull
+          ls -a
+          echo $RANDOM >> random.txt
+          ls -a
+          git add -a
+          git commit -m "New File"
+          git push   
       - name: Create issue using REST API
         run: |
           curl --request POST \
@@ -15,7 +33,6 @@ jobs:
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-            }' \
-          --fail
-          - name: Create Random Files
-      
+            }' \                    
+        # --fail          
+     
