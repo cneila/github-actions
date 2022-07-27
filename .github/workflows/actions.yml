@@ -34,7 +34,7 @@ jobs:
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "who-to-greet"
-          who-to-greet: Carlos Neila Ramos
+          who-to-greet: Carlitoss Neila Ramos
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
         run: echo "${{steps.idRun.outputs.time}}"    
