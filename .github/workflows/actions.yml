@@ -30,7 +30,7 @@ jobs:
       - name: SImple JS Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
-        uses: cneila/santander-europe-read-yaml@260b8ab19264924e2cd8284346cde8a23f443c65
+        uses: cneila/santander-europe-read-yaml@master
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "path"
