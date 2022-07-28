@@ -20,7 +20,7 @@ jobs:
 
   run-windows-command:
     runs-on: windows-latest
-    #SI NO PONGO NEEDS SE EJECUTA EN PARALELO, SI LO PONGO SE MANERA SECUENCIAL (DEPENDE DE)
+    #SI NO PONGO NEEDS SE EJECUTA EN PARALELO, SI LO PONGO SE MANERA SECUENCIAL (DEPENDE DE
     needs: ['run-shell-command']
     steps:
       - name: Java

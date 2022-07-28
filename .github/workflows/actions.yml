@@ -30,11 +30,11 @@ jobs:
       - name: SImple JS Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
-        uses: cneila/santander-read-yaml@e76147da8e5c81eaf017dede5645551d4b94427b
+        uses: cneila/santander-europe-read-yaml@v1
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "who-to-greet"
-          who-to-greet: Carlitoss Neila Ramos
+          path: https://api.github.com/repos/${{ github.repository }}/random.txt
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
         run: echo "${{steps.idRun.outputs.time}}"    
