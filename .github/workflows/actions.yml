@@ -27,7 +27,7 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: SImple JS Action
+      - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
         uses: cneila/santander-europe-read-yaml@main
