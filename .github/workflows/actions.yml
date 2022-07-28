@@ -27,21 +27,20 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Read VERSION file
-        id: getversion
-        run: |
-          pwd
-          ls
-          echo "::set-output name=version::$(cat ${{ github.workspace }}/random.txt)"
+      
       - uses: actions/checkout@v3
       - name: Default ENV Variables
         run: |
           pwd
           ls -a
-          cd ./
-          ls -a
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
+      - name: Read VERSION file
+        id: getversion
+        run: |
+          pwd
+          ls
+          echo "::set-output name=version::$(cat config.yaml)"
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
