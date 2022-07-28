@@ -30,8 +30,8 @@ jobs:
       - name: Read VERSION file
         id: getversion
         run: |
-          echo pwd
-          echo ls
+          pwd
+          ls
           echo "::set-output name=version::$(cat ${{ github.workspace }}/random.txt)"
       - name: Execute Action
         id: idRun
