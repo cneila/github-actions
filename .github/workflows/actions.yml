@@ -34,6 +34,12 @@ jobs:
           ls
           echo "::set-output name=version::$(cat ${{ github.workspace }}/random.txt)"
       - uses: actions/checkout@v3
+      - name: Default ENV Variables
+        run: |
+          pwd
+          ls -a
+          echo "HOME: ${HOME}"
+          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
