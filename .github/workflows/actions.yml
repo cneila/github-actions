@@ -33,6 +33,7 @@ jobs:
           pwd
           ls
           echo "::set-output name=version::$(cat ${{ github.workspace }}/random.txt)"
+      - uses: actions/checkout@v3
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
