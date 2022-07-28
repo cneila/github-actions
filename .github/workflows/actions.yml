@@ -38,6 +38,8 @@ jobs:
         run: |
           pwd
           ls -a
+          cd ./
+          ls -a
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
       - name: Execute Action
