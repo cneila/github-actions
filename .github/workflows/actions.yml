@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Read VERSION file
         id: getversion
-        run: echo "::set-output name=version::$(cat random.txt)"
+        run: echo "::set-output name=version::$(cat ${{ github.workspace }}/random.txt)"
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
