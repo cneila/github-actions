@@ -51,10 +51,17 @@ jobs:
       - name: Read File Action
         id: readFile
         run: |
-            pwd
-            ls -a            
-            echo "Valaaueaaas $(cat ./output.json)"
-            echo "Vaaluaea aa2 $(cat output.json)"     
+          pwd
+          ls -a            
+          echo "Valaaueaaas $(cat ./output.json)"
+          echo "Vaaluaea aa2 $(cat output.json)"  
+          echo "::set-output name=packageJson::$(cat output.json)"
+      - name: Get Properties JSON
+        id: getProperties
+        run: |             
+          echo "${{fromJson(steps.readFile.outputs.packageJson).service.type}}"   
+          echo "${{fromJson(steps.readFile.outputs.packageJson).ingress.enabled}}"   
+          echo "${{fromJson(steps.readFile.outputs.packageJson).resources}}"   
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
         run: echo "${{steps.idRun.outputs.time}}"    
