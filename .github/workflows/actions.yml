@@ -67,7 +67,7 @@ jobs:
       - name: Get Properties JSON
         id: getproperties
         run: |             
-          echo "${{ steps.readfile.outputs.packageJson }}"           
+          echo "${{ fromJson(steps.readfile.outputs.packageJson).service.type }}"           
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
         run: echo "${{steps.idRun.outputs.time}}"    
