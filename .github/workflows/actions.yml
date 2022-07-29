@@ -48,6 +48,13 @@ jobs:
           # INPUT NAME: "path"
           path: ${{ steps.getversion.outputs.version }}
           # https://api.github.com/repos/${{ github.repository }}/random.txt
+      - name: Read File Action
+        id: readFile
+        run: |
+            pwd
+            ls -a            
+            echo "Valaaueaaas $(cat ./output.json)"
+            echo "Vaaluaea aa2 $(cat output.json)"     
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
         run: echo "${{steps.idRun.outputs.time}}"    
