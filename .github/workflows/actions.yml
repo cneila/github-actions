@@ -30,6 +30,7 @@ jobs:
       
       - uses: actions/checkout@v3
       - name: Default ENV Variables
+        id: getversion
         run: |
           pwd
           ls -a
@@ -37,13 +38,7 @@ jobs:
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
           echo "::set-output name=version::$(cat config.yaml)"
           echo "Value $(cat ./config.yaml)"
-          echo "Value 2 $(cat config.yaml)"
-      - name: Read VERSION file
-        id: getversion
-        run: |
-          pwd
-          ls
-          echo "::set-output name=version::$(cat ./config.yaml)"
+          echo "Value 2 $(cat config.yaml)"     
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
@@ -51,7 +46,7 @@ jobs:
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "path"
-          path: ./random.txt
+          path: v${{ steps.getversion.outputs.version }}
           # https://api.github.com/repos/${{ github.repository }}/random.txt
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
