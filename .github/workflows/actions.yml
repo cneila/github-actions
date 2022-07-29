@@ -36,8 +36,8 @@ jobs:
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
           echo "::set-output name=version::$(cat config.yaml)"
-          echo "$(cat ./config.yaml)"
-          echo "$(cat config.yaml)"
+          echo "Value $(cat ./config.yaml)"
+          echo "Value 2 $(cat config.yaml)"
       - name: Read VERSION file
         id: getversion
         run: |
