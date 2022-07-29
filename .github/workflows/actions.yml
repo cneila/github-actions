@@ -46,7 +46,7 @@ jobs:
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "path"
-          path: v${{ steps.getversion.outputs.version }}
+          path: ${{ steps.getversion.outputs.version }}
           # https://api.github.com/repos/${{ github.repository }}/random.txt
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
