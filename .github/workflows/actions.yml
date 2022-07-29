@@ -49,7 +49,7 @@ jobs:
           path: ${{ steps.getversion.outputs.version }}
           # https://api.github.com/repos/${{ github.repository }}/random.txt
       - name: Read File Action
-        id: readFile
+        id: readfile
         run: |
           pwd
           ls -a            
@@ -57,11 +57,11 @@ jobs:
           echo "Vaaluaea aa2 $(cat output.json)"  
           echo "::set-output name=packageJson::$(cat output.json)"
       - name: Get Properties JSON
-        id: getProperties
+        id: getproperties
         run: |             
-          echo "${{fromJson(steps.readFile.outputs.packageJson).service.type}}"   
-          echo "${{fromJson(steps.readFile.outputs.packageJson).ingress.enabled}}"   
-          echo "${{fromJson(steps.readFile.outputs.packageJson).resources}}"   
+          echo "${{ fromJson(steps.readfile.outputs.packageJson).service.type }}"   
+          echo "${{ fromJson(steps.readfile.outputs.packageJson).ingress.enabled }}"   
+          echo "${{ fromJson(steps.readfile.outputs.packageJson).resources }}"   
       - name : Log Time
         #"time" del JS OUPUT DE LA DOCU
         run: echo "${{steps.idRun.outputs.time}}"    
