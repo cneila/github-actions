@@ -56,6 +56,14 @@ jobs:
           echo "Valaaueaaas $(cat ./output.json)"
           echo "Vaaluaea aa2 $(cat output.json)"  
           echo "::set-output name=packageJson::$(cat ./output.json)"
+
+          content=`cat ./output.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=packageJson::$content"
       - name: Get Properties JSON
         id: getproperties
         run: |             
