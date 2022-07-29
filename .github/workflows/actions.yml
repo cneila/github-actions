@@ -37,7 +37,7 @@ jobs:
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
           echo "::set-output name=version::$(cat config.yaml)"
-          echo "Valueas $(cat ./config.yaml)"
+          echo "Valueaaas $(cat ./config.yaml)"
           echo "Vaaluaea a2 $(cat config.yaml)"     
       - name: Execute Action
         id: idRun
