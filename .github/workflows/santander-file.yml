@@ -1,4 +1,4 @@
-name: Actions WF
+name: Parse File YAML
 
 on:
   workflow_dispatch:
