@@ -31,11 +31,7 @@ jobs:
           ls -a
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
-          echo "::set-output name=version::$(cat ${{ inputs.inputFileName }})"
-          echo "Valaaueaaas $(cat ./config.yml)"
-          echo "Vaaluaea File ${{ inputs.inputFileName }}"    
-          echo "Vaaluaea Content $(cat ${{ inputs.inputFileName }})"    
-          echo "Vaaluaea Content2 $(cat ./${{ inputs.inputFileName }})"    
+          echo "::set-output name=filaName::$(cat ${{ inputs.inputFileName }})"         
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
@@ -43,17 +39,11 @@ jobs:
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "path"
-          path: ${{ steps.getversion.outputs.version }}
-          # https://api.github.com/repos/${{ github.repository }}/random.txt
+          path: ${{ steps.getversion.outputs.filaName }}          
       - name: Read File Action
         id: readfile
-        run: |
-          pwd
-          ls -a            
-          echo "Valaaueaaas $(cat ./output.json)"
-          echo "Vaaluaea aa2 $(cat output.json)"  
+        run: |          
           echo "::set-output name=packageJson::$(cat ./output.json)"
-
           content=`cat ./output.json`
           # the following lines are only required for multi line json
           content="${content//'%'/'%25'}"
