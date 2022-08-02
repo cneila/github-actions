@@ -33,7 +33,9 @@ jobs:
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
           echo "::set-output name=version::$(cat config.yml)"
           echo "Valaaueaaas $(cat ./config.yml)"
-          echo "Vaaluaea aa2 $(cat inputs.inputFileName)"     
+          echo "Vaaluaea File ${{ inputs.inputFileName }}"    
+          echo "Vaaluaea Content $(cat ${{ inputs.inputFileName }})"    
+          echo "Vaaluaea Content2 $(cat ${{ ./inputs.inputFileName }})"    
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
