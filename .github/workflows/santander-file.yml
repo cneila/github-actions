@@ -1,31 +1,26 @@
-name: Actions WF
+name: Parse File YAML
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      targetEnvironment:
+        required: true
+        description: Target environment
+        type: choice
+        options: 
+          - DEV
+          - PRE
+          - PRO
+      inputFileName:
+        required: true
+        description: Target environment
+        type: string 
+        default: 'config.yaml' 
 
-jobs:
-  run-github-actions-using-checkout:
+jobs:  
+  get-json-from-yaml:
     runs-on: ubuntu-latest
-    steps:
-      - name: List Files CNEIL
-        id: Pre-checkout
-        run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
-          echo "${{github.token}}"          
-      - name: Checkout CNEILA
-        id: Checkout
-        #EXTERNAL ACTION https://github.com/actions/checkout
-        uses: actions/checkout@v1
-      - name: List Files CNEILA  AFTERCHECK
-        id: Post-checkout
-        run: |
-          pwd
-          ls -a
-  run-github-actions:
-    runs-on: ubuntu-latest
+    if:  ${{ inputs.inputFileName }} 
     steps:
       
       - uses: actions/checkout@v3
@@ -38,7 +33,7 @@ jobs:
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
           echo "::set-output name=version::$(cat config.yaml)"
           echo "Valaaueaaas $(cat ./config.yaml)"
-          echo "Vaaluaea aa2 $(cat config.yaml)"     
+          echo "Vaaluaea aa2 $(cat inputs.inputFileName)"     
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA

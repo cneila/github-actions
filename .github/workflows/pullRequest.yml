@@ -1,6 +1,30 @@
 name: Shell Commands
 
-on: [pull_request]
+on: 
+  #repository_dispatch:
+    #types:[build]
+     
+  push:
+    branches:
+      - master
+      - 'feature/*'
+    #branches-ignore:
+      #- null
+    tags:
+      - v1.*
+    
+    paths-ignore:
+      - '**.js'
+      #!Excepto
+    #*-ignore      
+  
+  #schedule:
+    #- cron: "0/5 * * * *"
+    #- cron: "0/6 * * * *"
+    # minutes hours day of mohtn month day of week * cualquier día mes..
+    # 1,2,3-6,0/10 * * * * https://crontab.guru/#1,2,3-6,0/10_*_*_*_*
+  pull_request:
+    types: [closed, assigned, opened, reopened]
 
 jobs:
   run-shell-command:
