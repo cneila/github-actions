@@ -1,0 +1,69 @@
+name: Actions WF
+
+on:
+  workflow_dispatch:
+    inputs:
+      targetEnvironment:
+        required: true
+        description: Target environment
+        type: choice
+        options: 
+          - DEV
+          - PRE
+          - PRO
+      inputFileName:
+        required: true
+        description: Target environment
+        type: string 
+        default: 'config.yaml' 
+
+jobs:  
+  get-json-from-yaml:
+    runs-on: ubuntu-latest
+    if:  ${{ inputs.inputFileName }} 
+    steps:
+      
+      - uses: actions/checkout@v3
+      - name: Default ENV Variables
+        id: getversion
+        run: |
+          pwd
+          ls -a
+          echo "HOME: ${HOME}"
+          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
+          echo "::set-output name=version::$(cat config.yaml)"
+          echo "Valaaueaaas $(cat ./config.yaml)"
+          echo "Vaaluaea aa2 $(cat inputs.inputFileName)"     
+      - name: Execute Action
+        id: idRun
+        #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
+        uses: cneila/santander-europe-read-yaml@main
+        # INPUTS DE LA DOCU
+        with:
+          # INPUT NAME: "path"
+          path: ${{ steps.getversion.outputs.version }}
+          # https://api.github.com/repos/${{ github.repository }}/random.txt
+      - name: Read File Action
+        id: readfile
+        run: |
+          pwd
+          ls -a            
+          echo "Valaaueaaas $(cat ./output.json)"
+          echo "Vaaluaea aa2 $(cat output.json)"  
+          echo "::set-output name=packageJson::$(cat ./output.json)"
+
+          content=`cat ./output.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=packageJson::$content"
+      - name: Get Properties JSON
+        id: getproperties
+        run: |             
+          echo "${{ fromJson(steps.readfile.outputs.packageJson).service.type }}"           
+      - name : Log Time
+        #"time" del JS OUPUT DE LA DOCU
+        run: echo "${{steps.idRun.outputs.time}}"    
+ 
