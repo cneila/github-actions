@@ -42,8 +42,12 @@ jobs:
           path: ${{ steps.getversion.outputs.filaName }}          
       - name: Read File Action
         id: readfile
-        run: |          
-          echo "::set-output name=packageJson::$(cat ./output.json)"        
+        run: |                   
+          content=`cat ./output.json`         
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"          
+          echo "::set-output name=packageJson::$content"
       - name: Get Properties JSON
         id: getproperties
         run: |             
