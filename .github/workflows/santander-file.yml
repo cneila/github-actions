@@ -39,7 +39,7 @@ jobs:
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "path"
-          path: ${{ steps.getversion.outputs.filaName }}          
+          path: ${{ inputs.inputFileName }}          
       - name: Read File Action
         id: readfile
         run: |                   
