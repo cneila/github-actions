@@ -31,7 +31,7 @@ jobs:
           ls -a
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
-          echo "::set-output name=version::$(cat config.yml)"
+          echo "::set-output name=version::$(cat ${{ inputs.inputFileName }})"
           echo "Valaaueaaas $(cat ./config.yml)"
           echo "Vaaluaea File ${{ inputs.inputFileName }}"    
           echo "Vaaluaea Content $(cat ${{ inputs.inputFileName }})"    
