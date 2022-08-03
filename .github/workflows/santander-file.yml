@@ -32,6 +32,7 @@ jobs:
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
           echo "::set-output name=filaName::$(cat ${{ inputs.inputFileName }})"         
+          echo "::set-output name=workspace::${HOME}"
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
@@ -40,7 +41,7 @@ jobs:
         with:
           # INPUT NAME: "path"
           path: ${{ inputs.inputFileName }}
-          workspace:  ${{ HOME }}          
+          workspace:  ${{steps.getversion.outputs.workspace}}       
       - name: Read File Action
         id: readfile
         run: |                   
