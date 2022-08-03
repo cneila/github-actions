@@ -39,7 +39,8 @@ jobs:
         # INPUTS DE LA DOCU
         with:
           # INPUT NAME: "path"
-          path: ${{ inputs.inputFileName }}          
+          path: ${{ inputs.inputFileName }}
+          workspace:  ${HOME}          
       - name: Read File Action
         id: readfile
         run: |                   
