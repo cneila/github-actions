@@ -41,7 +41,7 @@ jobs:
         with:
           # INPUT NAME: "path"
           path: ${{ inputs.inputFileName }}
-          workspace: ${{ GITHUB_WORKSPACE }}       
+          workspace: ${{steps.getversion.outputs.workspace}}       
       - name: Read File Action
         id: readfile
         run: |                   
