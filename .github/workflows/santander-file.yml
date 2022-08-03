@@ -40,7 +40,7 @@ jobs:
         with:
           # INPUT NAME: "path"
           path: ${{ inputs.inputFileName }}
-          workspace:  ${HOME}          
+          workspace:  ${{ HOME }}          
       - name: Read File Action
         id: readfile
         run: |                   
