@@ -31,8 +31,8 @@ jobs:
           ls -a
           echo "HOME: ${HOME}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
-          echo "::set-output name=filaName::$(cat ${{ inputs.inputFileName }})"         
-          echo "::set-output name=workspace::${HOME}"
+          echo "::set-output name=filaName::$(cat ${{ inputs.inputFileName }})"                   
+          echo "::set-output name=workspace::${pwd}"
       - name: Execute Action
         id: idRun
         #@Codigo del commit || @master NO RECOMENDADO PORQUE CAMBIA
