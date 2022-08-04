@@ -1,7 +1,9 @@
 name: "My composite action"
-description: "Checks out the repository and does something"
-runs:
-  using: "composite"
-  steps: 
-  - run: |
+description: "Test Santander Path"
+
+jobs:
+  run-github-actions-using-checkout:
+    runs-on: ubuntu-latest
+    steps: 
+    - run: |
       echo "Hi Santander "
