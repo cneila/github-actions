@@ -1,10 +1,12 @@
 name: "My composite action"
 description: "Test Santander Path"
 
-jobs:
-  job-test:
-    runs-on: ubuntu-latest
-    steps: 
-     - name: Test Step 
-       run: |
+
+runs:
+  using: "composite"
+  steps: 
+    steps:
+    - name: Test Step 
+      shell: bash
+      run: |
         echo "Hi Santander "
