@@ -6,7 +6,7 @@ jobs:
   run-github-actions-using-checkout:
     runs-on: ubuntu-latest
     steps:
-       - name: Checkout CNEILA
+      - name: Checkout CNEILA
         id: Checkout
         #EXTERNAL ACTION https://github.com/actions/checkout
         uses: actions/checkout@v1
