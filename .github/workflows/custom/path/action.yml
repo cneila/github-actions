@@ -4,8 +4,7 @@ description: "Test Santander Path"
 
 runs:
   using: "composite"
-  steps: 
-    steps:
+  steps:     
     - name: Test Step 
       shell: bash
       run: |
