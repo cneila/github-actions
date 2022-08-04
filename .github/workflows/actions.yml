@@ -6,6 +6,7 @@ jobs:
   run-github-actions-using-checkout:
     runs-on: ubuntu-latest
     steps:
+      - uses: ./.github/workflows/custom/path
       - name: List Files CNEIL
         id: Pre-checkout
         run: |

@@ -1,0 +1,31 @@
+name: Custom Path Workflow
+
+on: [push]
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Custom Step Write String
+        run: echo "Mi String"
+      - name: Ejecuto Varias Instrucciones
+        run: |
+          node -v
+          npm -v
+          echo ${{github.ref}}
+      - name: Ejecuto En otro shell Instrucciones
+        run: |
+          (Get-Command java | Select-Object -ExpandProperty Version).toString()         
+        shell: pwsh
+
+  run-windows-command:
+    runs-on: windows-latest
+    #SI NO PONGO NEEDS SE EJECUTA EN PARALELO, SI LO PONGO SE MANERA SECUENCIAL (DEPENDE DE)
+    needs: ['run-shell-command']
+    steps:
+      - name: Java
+        run: java -version
+      - name: Ejecuto Varias Instrucciones
+        run: |       
+          echo ${{github.ref}}
+     
