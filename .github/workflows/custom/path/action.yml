@@ -2,7 +2,7 @@ name: "My composite action"
 description: "Test Santander Path"
 
 jobs:
-  run-github-actions-using-checkout:
+  job-test:
     runs-on: ubuntu-latest
     steps: 
      - name: Test Step 
